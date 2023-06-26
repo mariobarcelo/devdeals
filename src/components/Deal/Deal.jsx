@@ -82,7 +82,8 @@ const ShortDescription = styled.p`
 const Price = styled.p`
 	grid-column: 1;
 	grid-row: 2;
-	place-self: center;
+	justify-self: center;
+	align-self: end;
 	font-weight: bold;
 	font-size: 24px;
 `;
@@ -90,7 +91,7 @@ const BuyDeal = styled.a`
 	grid-column: 2;
 	grid-row: 2;
 	justify-self: end;
-	align-self: center;
+	align-self: end;
 	background-color: black;
 	color: white;
 	border-radius: 8px;
