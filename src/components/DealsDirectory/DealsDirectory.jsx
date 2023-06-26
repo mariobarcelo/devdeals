@@ -87,8 +87,9 @@ function DealsDirectory() {
 const Grid = styled.main`
 	/* border: 1px solid black; */
 	border-radius: 8px;
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	justify-items: center;
 	gap: 20px;
 `;
 

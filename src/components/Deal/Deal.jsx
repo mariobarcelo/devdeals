@@ -41,7 +41,7 @@ const Article = styled.article`
 	row-gap: 5px;
 	column-gap: 30px;
 	padding: 10px;
-	max-width: 300px;
+	width: 100%;
 	border: 1px solid black;
 	border-radius: 8px;
 `;
