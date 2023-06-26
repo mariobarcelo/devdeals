@@ -89,6 +89,8 @@ const Grid = styled.main`
 	border-radius: 8px;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-auto-rows: 1fr;
+	/* grid-auto-flow: dense; */
 	justify-items: center;
 	gap: 20px;
 `;
