@@ -3,6 +3,7 @@ import useSWR from 'swr';
 import Deal from '../Deal';
 import { styled } from 'styled-components';
 import { DATABASE_URL } from '../../constants';
+import { QUERIES } from '../../constants';
 
 async function fetchProducts(query_url) {
 	const response = await fetch(query_url);
@@ -88,11 +89,15 @@ const Grid = styled.main`
 	/* border: 1px solid black; */
 	border-radius: 8px;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-	grid-auto-rows: 1fr;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	/* grid-auto-rows: 1fr; */
 	/* grid-auto-flow: dense; */
 	justify-items: center;
 	gap: 20px;
+
+	@media ${QUERIES.tabletAndUp} {
+		grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+	}
 `;
 
 export default DealsDirectory;
