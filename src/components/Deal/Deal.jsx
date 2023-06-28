@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 import { QUERIES } from '../../constants';
 
 function Deal({
@@ -33,10 +33,10 @@ function Deal({
 
 const Article = styled.article`
 	display: grid;
-	grid-template-columns: repeat(2, auto);
+	grid-template-columns: auto 1fr;
 	grid-template-rows: repeat(5, auto);
 	row-gap: 10px;
-	column-gap: 30px;
+	column-gap: 10px;
 	padding: 24px 32px;
 	max-width: 550px;
 	width: 100%;
@@ -100,21 +100,58 @@ const Price = styled.p`
 	grid-row: 4;
 	font-weight: bold;
 	font-size: 24px;
+
 	@media ${QUERIES.tabletAndUp} {
 		grid-column: 1;
 		grid-row: 4;
 		justify-self: start;
+		align-self: center;
 	}
 `;
+
+const glow = keyframes`
+to {
+	transform: translateX(100%);
+}
+`;
+
 const BuyDeal = styled.a`
+	height: 48px;
 	grid-column: 1 / -1;
 	grid-row: 5;
 	align-self: end;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: black;
 	color: white;
 	border-radius: 8px;
+	border: none;
 	text-decoration: none;
-	padding: 8px 16px;
+	font-weight: 600;
+	padding: 8px 24px;
+	position: relative;
+	overflow: hidden;
+
+	@media (prefers-reduced-motion: no-preference) {
+		&::before {
+			content: '';
+			color: rgba(255, 228, 230, 0.9);
+			background: rgb(2, 0, 36);
+			background: linear-gradient(
+				90deg,
+				rgba(2, 0, 36, 0) 0%,
+				rgba(255, 255, 255, 0.3505996148459384) 50%,
+				rgba(0, 212, 255, 0) 100%
+			);
+			position: absolute;
+			height: 300px;
+			width: 300px;
+			transform: translateX(-100%);
+			animation: ${glow} 5s ease-in-out infinite;
+			pointer-events: none;
+		}
+	}
 
 	@media ${QUERIES.tabletAndUp} {
 		grid-column: 2 / -1;
